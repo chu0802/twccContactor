@@ -80,7 +80,7 @@ $(twcc cnt [-n <name> | -s <sid>])
 
 Remove a container by given either the name, or the site-id.
 
-### Command
+#### Command
 
 ```
 twcc rm [-n <name | -s <sid>]
