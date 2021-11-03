@@ -45,7 +45,7 @@ def main(args):
         args.cmd = 'cnt'
     # ls
     if args.cmd == 'ls':
-        Popen('twccli ls ccs'.split())
+        Popen('twccli ls ccs'.split()).communicate()
 
     # mk
     elif args.cmd == 'mk':
