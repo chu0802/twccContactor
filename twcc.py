@@ -28,8 +28,8 @@ def get_sid(name, sids):
         return -1
     return sids[name]
 
-def build(name, gpu):
-    Popen(('twccli mk ccs -n %s -itype PyTorch -img pytorch-21.02-py3:latest -gpu %s' % (name, gpu)).split())
+def build(name, gpu, stdout=STDOUT):
+    Popen(('twccli mk ccs -n %s -itype PyTorch -img pytorch-21.02-py3:latest -gpu %s' % (name, gpu)).split(), stdout=stdout, stderr=stdout)
 
 def connect(sid, ctype, cnts, status):
     ssh = check_output(('twccli ls ccs -s %s -g%s' % (sid, ctype)).split()).decode('utf-8').strip()
@@ -58,7 +58,7 @@ def main(args):
         if args.cmd == 'cnt':
             # Not found, make a new container
             if sid == -1:
-                Popen(('twccli mk ccs -n %s -itype PyTorch -img pytorch-21.02-py3:latest -gpu %s' % (args.name if args.name else args.site_id, args.gpu)).split(), stdout=DEVNULL, stderr=DEVNULL)
+                build(args.name if args.name else args.site_id, args.gpu, stdout=DEVNULL)
                 sleep(5, verbose=False)
                 containers, status, sids = get_containers()
                 sid = get_sid(args.name, sids)
