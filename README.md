@@ -58,18 +58,18 @@ twcc ls
 
 One of the most important features for **twccContactor**, directly connect to a container by the given name, or the site-id.
 
-If the given container doesn't exist, twccContactor will automatically create one, waiting until the container is ready, and connect to it automatically.
+If the given container doesn't exist, twccContactor will automatically create one, waiting until the container is ready, and connect to it.
 
 #### Command
 
 ```
-$(twcc [-n <name> | -s <sid>])
+$(twcc [-n <name> | -s <sid>] -g <#gpu>)
 ```
 
 or 
 
 ```
-$(twcc cnt [-n <name> | -s <sid>])
+$(twcc cnt [-n <name> | -s <sid>] <#gpu>)
 ```
 
 *Note: To avoid unexpected exceptions when directly calling `ssh` in python script, twccContactor will only print the ssh-command to STDOUT. Thus, to execute it, one should use `$(twcc cnt ...)`, instead of directly calling `twcc cnt ...`.*
