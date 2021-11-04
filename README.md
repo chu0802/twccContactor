@@ -4,7 +4,7 @@ A python script handling twccli much easier.
 ## Dependencies
 It's a script specialized for contact with twccli, thus, please make sure you've installed twccli via pip. (See [here](https://man.twcc.ai/@twccdocs/doc-cli-main-zh/)).
 
-```
+```bash
 pip install TWCC-CLI
 ```
 
@@ -13,13 +13,13 @@ pip install TWCC-CLI
 twccContactor has been an executable. Thus, it is highly recommended to install it in your local bin directory. (e.g., `~/.local/bin`)
 
 1. (Optional) If `~/.local/bin` doesn't exist, or it hasn't been added in your `PATH`.
-  ```
+  ```bash
   mkdir ~/.local/bin
   echo 'PATH="~/.local/bin":$PATH' >> ~/.bashrc
   source ~/.bashrc
   ```
 2. Download twccContactor to `~/.local/bin`, and set an alias to easily using it.
-  ```
+  ```bash
   git clone https://github.com/chu0802/twccContactor
   cp twcc.py ~/.local/bin
   rm -rf twccContactor
@@ -42,7 +42,7 @@ By default, it will create a container with `pytorch 1.8.0`, user can only set t
 
 #### Command
 
-```
+```bash
 twcc mk -n <name> -g <#gpu>
 ```
 
@@ -52,7 +52,7 @@ This command is equivalent to `twccli ls ccs`.
 
 #### Command
 
-```
+```bash
 twcc ls
 ```
 
@@ -64,13 +64,13 @@ If the given container doesn't exist, twccContactor will automatically create on
 
 #### Command
 
-```
+```bash
 $(twcc [-n <name> | -s <sid>] -g <#gpu>)
 ```
 
 or 
 
-```
+```bash
 $(twcc cnt [-n <name> | -s <sid>] <#gpu>)
 ```
 
@@ -84,7 +84,7 @@ Remove a container by given either the name, or the site-id.
 
 #### Command
 
-```
+```bash
 twcc rm [-n <name> | -s <sid>]
 ```
 
