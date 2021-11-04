@@ -50,6 +50,8 @@ twcc mk -n <name> -g <#gpu>
 
 This command is equivalent to `twccli ls ccs`.
 
+#### Command
+
 ```
 twcc ls
 ```
@@ -83,7 +85,7 @@ Remove a container by given either the name, or the site-id.
 #### Command
 
 ```
-twcc rm [-n <name | -s <sid>]
+twcc rm [-n <name> | -s <sid>]
 ```
 
 *Note: When there're multiple containers with the same name, by default, twccContactor will delete the first container. To remove a specific one, please first list all containers' information, and selecting it according to the corresponding site-id.*
