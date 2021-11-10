@@ -64,7 +64,7 @@ def main(args):
                 sid = get_sid(args.name, sids)
             connect(sid, args.type, containers, status)
         elif args.cmd == 'rm':
-            Popen(('twccli rm ccs -s %s' % (sid)).split()).communicate()
+            Popen(('twccli rm ccs -s %s' % (sid)).split() + (['-f'] if args.force else [])).communicate()
 
 if __name__ == '__main__':
     p = argparse.ArgumentParser()
@@ -100,6 +100,7 @@ if __name__ == '__main__':
     rmg = rmp.add_mutually_exclusive_group()
     rmg.add_argument('-n', '--name', type=str, default=None)
     rmg.add_argument('-s', '--site_id', type=str, default=None)
+    rmp.add_argument('-f', '--force', action='store_true')
 
     args = p.parse_args()
     main(args)
